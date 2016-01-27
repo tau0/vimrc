@@ -123,11 +123,11 @@ if has('python')
 endif
 
 " ##############################################################################
-" Yandex
+" Local config 
 " ##############################################################################
-let yandex_config_path = $HOME . '/.yandex_vimrc.vim'
-if filereadable(yandex_config_path)
-    exec 'source ' . yandex_config_path
+let local_config_path = $HOME . '/.local_vimrc.vim'
+if filereadable(local_config_path)
+    exec 'source ' . local_config_path
     endif
 " ##############################################################################
 " NerdTree
