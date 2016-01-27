@@ -1,4 +1,17 @@
 " ##########################################################################################
+" General 
+" ##########################################################################################
+set number
+let mapleader = ","
+set autoindent
+set cindent
+set shiftwidth=4
+set expandtab
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
+" ##########################################################################################
 " Vundle setup 
 " ##########################################################################################
 set nocompatible              " be iMproved, required
@@ -13,6 +26,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'git://github.com/Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -38,3 +53,16 @@ if has('python')
         \ pyeval('os.path.realpath(os.path.expandvars("$ARCADIA_ROOT/.ycm_extra_conf.py"))')
     \ ]
 endif
+
+" ##########################################################################################
+" Yandex
+" ##########################################################################################
+let yandex_config_path = $HOME . '/.yandex_vimrc.vim'
+if filereadable(yandex_config_path)
+    exec 'source ' . yandex_config_path
+    endif
+" ##########################################################################################
+" NerdTree
+" ##########################################################################################
+nnoremap <leader>nn :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
