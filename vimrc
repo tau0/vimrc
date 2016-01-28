@@ -112,15 +112,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" ##############################################################################
-" YCM
-" ##############################################################################
-if has('python')
-    python import os.path
-    let g:ycm_extra_conf_globlist = [
-        \ pyeval('os.path.realpath(os.path.expandvars("$ARCADIA_ROOT/.ycm_extra_conf.py"))')
-    \ ]
-endif
 
 " ##############################################################################
 " Local config 
